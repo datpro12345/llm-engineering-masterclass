@@ -1,19 +1,61 @@
 # Audio to Meeting Minutes Converter
 
-This project uses both frontier (OpenAI Whisper) and open-source (Llama 3.1) models to convert meeting audio recordings into structured meeting minutes with summaries, discussion points, and action items.
+Convert audio recordings of meetings into structured meeting minutes using AI.
 
 ## Features
 
-- Transcribe meeting audio recordings using OpenAI's Whisper model
-- Generate structured meeting minutes using Llama 3.1
-- Format output in Markdown with proper sections
-- Simple Gradio UI for easy use
-- Google Drive integration for reading audio files
+- Upload audio files (MP3, WAV)
+- Automatic transcription using AssemblyAI
+- AI-powered meeting minutes generation using Perplexity API
+- Structured output with key points, action items, and decisions
 
-## Technologies Used
+## Setup
 
-- OpenAI Whisper for speech-to-text
-- Llama 3.1 8B Instruct for text summarization
-- Hugging Face Transformers for model access
-- Bits & Bytes for model quantization
-- Gradio for the user interface
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd week3-audio-to-meeting-minutes-converter
+```
+
+2. Create and activate conda environment:
+```bash
+conda env create -f environment.yml
+conda activate v2tmt
+```
+
+3. Create `.env` file with your API keys:
+```
+ASSEMBLYAI_API_KEY=your_assemblyai_api_key
+PERPLEXITY_API_KEY=your_perplexity_api_key
+```
+
+## Usage
+
+1. Start the Streamlit app:
+```bash
+streamlit run cursor_flow.py
+```
+
+2. Open your browser at http://localhost:8501
+
+3. Upload an audio file and wait for processing
+
+## Project Structure
+
+```
+week3-audio-to-meeting-minutes-converter/
+├── tasks/
+│   ├── upload_audio.py    # Audio file handling
+│   ├── transcribe.py      # AssemblyAI transcription
+│   └── summarize.py       # Perplexity API summarization
+├── config.py              # Configuration and settings
+├── cursor_flow.py         # Main Streamlit app
+└── environment.yml        # Conda environment
+```
+
+## Requirements
+
+- Python 3.10
+- AssemblyAI API key
+- Perplexity API key
+- See environment.yml for full dependencies

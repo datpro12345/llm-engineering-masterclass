@@ -1,0 +1,13 @@
+name: v2tmt
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - assemblyai
+    - streamlit
+    - gradio
+    - python-dotenv
+    - pydantic
+    - pydantic-settings
