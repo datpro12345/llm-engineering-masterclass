@@ -1,0 +1,14 @@
+assemblyai==0.17.0
+streamlit==1.32.0
+gradio==4.19.2
+python-dotenv==1.0.1
+pydantic==2.6.3
+pydantic-settings==2.2.1
+requests==2.31.0
+assemblyai==0.17.0
+streamlit==1.32.0
+gradio==4.19.2
+python-dotenv==1.0.1
+pydantic==2.6.3
+pydantic-settings==2.2.1
+requests==2.31.0

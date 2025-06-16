@@ -59,3 +59,18 @@ week3-audio-to-meeting-minutes-converter/
 - AssemblyAI API key
 - Perplexity API key
 - See environment.yml for full dependencies
+
+## Building and Running with Docker
+
+1. Set up environment variables:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your API keys
+   ```
+
+2. Build and run with Docker Compose:
+   ```bash
+   docker-compose up --build
+   ```
+
+3. Access the application at http://localhost:8501

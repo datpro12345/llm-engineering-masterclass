@@ -8,12 +8,14 @@ from config import settings
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def transcribe(audio_bytes: bytes) -> str:
+def transcribe(audio_bytes: bytes, model: str = "universal", language_code: Optional[str] = None) -> str:
     """
     Transcribe audio bytes to text using AssemblyAI REST API.
     
     Args:
         audio_bytes: Raw audio data in bytes
+        model: Speech model to use ("universal", "whisper-1", or "nano")
+        language_code: Optional language code (e.g., "vi", "en", "ja")
         
     Returns:
         str: Transcribed text
@@ -42,8 +44,13 @@ def transcribe(audio_bytes: bytes) -> str:
         logger.info("Starting transcription...")
         data = {
             "audio_url": audio_url,
-            "speech_model": "universal"
+            "speech_model": model
         }
+        
+        # Add language code if specified
+        if language_code:
+            data["language_code"] = language_code
+            
         transcript_response = requests.post(
             f"{base_url}/v2/transcript",
             json=data,
